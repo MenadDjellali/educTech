@@ -1,0 +1,24 @@
+{
+    "name": "Node.js Dev Container",
+    "context": ".",
+    "dockerFile": "Dockerfile",
+    "runArgs": ["--privileged"],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "remoteUser": "node",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+      "dbaeumer.vscode-eslint",  // ESLint extension
+      "esbenp.prettier-vscode",  // Prettier for code formatting
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag"
+    ],
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "remoteEnv": {
+      "NODE_ENV": "development"
+    },
+  }
+  
