@@ -12,7 +12,10 @@
       "dbaeumer.vscode-eslint",  // ESLint extension
       "esbenp.prettier-vscode",  // Prettier for code formatting
       "formulahendry.auto-close-tag",
-      "formulahendry.auto-rename-tag"
+      "formulahendry.auto-rename-tag",
+      "bradlc.vscode-tailwindcss",
+      "NextNav.NextNav",
+      "burkeholland.simple-react-snippets",
     ],
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
