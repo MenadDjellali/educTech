@@ -38,3 +38,13 @@
 3. Ouvrez le navigateur et allez sur localhost:8000.
 
 4. Vous pouvez vous connecter à la base de donnée via adminer sur localhost:8081.
+
+psql -U user 
+\l
+\c educTech
+\dn
+SET search_path TO "educTech_data";
+\dt "educTech_data".*
+
+\d "Course"
+\d maTable
