@@ -1,0 +1,44 @@
+version: '3.9'
+
+volumes:
+  db_data:
+  
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    volumes:
+      - ../:/workspaces/app
+    working_dir: /workspaces/app
+
+  db:
+    image: postgres:13.8
+    container_name: eductech_db
+    restart: unless-stopped
+    environment:
+      # POSTGRES_DB: educTech
+      # DB_SCHEMA: educTech_data
+      # educTech_USER: dev
+      # educTech_PASSWORD: dev
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: root
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - type: volume
+        source: db_data
+        target: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - 8081:8080
